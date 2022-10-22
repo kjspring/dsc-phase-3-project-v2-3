@@ -1,19 +1,23 @@
 
-# Phase 3 Project Description
+# Vaccine Hesitancy Prediction
 
-# Vaccine Compliance Prediction
+##  Overview
 
-# GitHub Repository
+Moderna, Inc. is a biotechnology company based in Cambridge, Massachusetts focused on RNA therapeutics such as mRNA vaccines. Their use of RNA technology speeds up design and production as compared to traditional vaccines. Moderna’s only current commercial product is Spikevax, a vaccine for SARS-CoV-2, the causative agent of Covid-19. With the success of this Spikevax, Moderna has been developing other RNA-based vaccines for diseases such as influenza, HIV, and various cancer. Moderna currently has 44 vaccines and treatments in their production pipeline, of which 22 are in clinical trials. One of these vaccines in Phase 3 trials is a single-shot SARS-CoV-2 and influenza vaccine, called mRNA-1073, to prevent severe reactions and hospitalization to the seasonal influenza virus and COVID-19.
 
-Recall that the GitHub repository is the cloud-hosted directory containing all of your project files as well as their version history.
+The RNA technology that Moderna is using to create and deliver their vaccines has shown 90+% efficacy but vaccines work only if a person is willing to take it. This repository uses machine learning to identify the most important variables that lead a person to become vaccinated or not. The model will also predict if someone will get a vaccine with 81% specificity.
 
-The requirements are the same as in [Phase 1](https://github.com/learn-co-curriculum/dsc-phase-1-project-v2-3#github-repository) and Phase 2, except for the required sections in the `README.md`.
+## Business and Data Understanding
 
-For this project, the `README.md` file should contain:
+Moderna, Inc. is using mRNA science to createa  new generation of transformative medicines for patients. One of these therapies is a vaccine to prevent serious illness from both the seasonal flu and COVID-19. Currently, in Stage 3 trials, this vaccination will reduce the number of vaccinations a person must get to be protected from the seasonal flu and COVID-19 and also increase the effficacy as the current seasonal flu vaccine is between 40-60% effective.
 
-* Overview
-* Business and Data Understanding
-  * Explain your stakeholder audience and dataset choice here
+### Stakeholders
+
+For this combined vaccination to be effective, Moderna's executives and pharmecutical representatives need to understand what variables lead people to become or resist vaccination. The stakeholders of this analysis are Moderna's executives and pharmecutical representatives that liason with doctors and other health care professionals to promote Moderna's vaccines.
+
+### Data
+
+
 * Modeling
 * **Evaluation**
 * Conclusion
