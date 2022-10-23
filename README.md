@@ -71,6 +71,10 @@ The Evaluation section shows that model 5 outperformed model 4 in accuracy, prec
 
 ## Evaluation
 
+While many metrics are shown below, the most important metric is specificity. Specificity, also known as the True Negative Value, refers to the probability that a negative prediction is actually negative. In this case it states the probability that a predicted not vaccinated person is actually not vaccinated. Moderna, Inc. wants to vaccinate people against the seasonal flu and COVID-19. If our model predicted a person as having the vaccine when in fact they will not get vaccinated, then this is very detremental to Moderna's needs. People that are accurately predicted to be not vaccinated will be given more information based on the most important variables as indicated in the model. Those that are predicted to be vaccinated would not receive this extra information and the false positive predictions would not have the extra information to become vaccinated.
+
+### Table 1: Metric Scores for the Machine Learning Models
+
 |            Model           	| Accuracy 	| Precision 	| Recall 	| F1-score 	| Specificity 	| NPV   	|
 |:--------------------------:	|----------	|-----------	|--------	|----------	|-------------	|-------	|
 | M1: Baseline Decision Tree 	| 67.9%    	| 65.6%     	| 66.5%  	| 66%      	| NA          	| NA    	|
@@ -79,7 +83,18 @@ The Evaluation section shows that model 5 outperformed model 4 in accuracy, prec
 | M4: Tuned Random Forest    	| 76.6%    	| 77.0%     	| 75.7%  	| 76.3%    	| 81.0%       	| 80.0% 	|
 | M5: Tuned XGBoost          	| 79.5%    	| 77.2%     	| 74.8%  	| 76.0%    	| 81.5%       	| 79.5% 	|
 
+While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has a higher specificity, accuracy, and precision than all of the models.
+
+The top ten important variables as defined by Model 5: XGBoost can be categorized in the following groups:
+
+* opinion of vaccine effectiveness
+* Opinion of risk of infection
+* Access to healthcare
+* Age group
+
 ## Conclusion
+
+
 
 Just like in Phase 1 and 2, the `README.md` file should be the bridge between your non technical presentation and the Jupyter Notebook. It should not contain the code used to develop your analysis, but should provide a more in-depth explanation of your methodology and analysis than what is described in your presentation slides.
 
