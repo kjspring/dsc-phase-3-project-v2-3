@@ -96,11 +96,11 @@ The top ten important variables as defined by Model 5: XGBoost can be categorize
 
 This analysis shows that it is possible with 79.5% accuracy and 81.5% specificity to predict whether a person will be vaccinated or not. This model can help improve vaccination rates when used in the right settings.
 
-Moderna's pharmaceutical representatives would work in conjunction with their healthcare and government partners to implement this model in healthcare facilities.
-
-Using the feature importance, relevant information would be provided to the patient that is predicted to not be vaccinated.
+Moderna's pharmaceutical representatives would work in conjunction with their healthcare and government partners to implement this model in healthcare facilities. A patient would take a survey when they visit a healthcare professional. The survey would be inputted into the model and a prediction would be made which is shared with the healthcare professional.
 
 ![Prediction workflow](images/prediction_workflow.png)
+
+Using the variable importance, relevant information would be provided to the patient based on the vaccination prediction. A person predicted to be vaccinated would be given the option to have get the vaccine and have a follow-up to remind them if necessary. A person predicted to not be vaccinated would be given based on the important variables identified with the model. for people under the age of 55, information would be given to the patient on the effectivness of the vaccine. For those over the age of 55, they would be given information based on the risk of illness of the diseases. With this information the patient can make a more informed decision. A follow-up call would be given to check the patient's vaccination status.
 
 ![Prediction actionable recommendations](images/prediction_action.png)
 
