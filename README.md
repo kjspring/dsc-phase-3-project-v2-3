@@ -27,7 +27,25 @@ While this data is over 10 years old and targets only part of the potential vacc
 
 Moderna's business problem is a classification problem and the solution is to be able to take in a series of variables from a patient and predict if this person is going to get a vaccination or not. The classification solution uses machine learning algorithms such as decision trees, random forests, and XGBoost was used to create predictive models and assess the most important variables from this dataset. 
 
+### Model 1: Baseline Decision Tree
+
+
+### Model 2: Hyperparameter Tuned Decision Tree
+
+### Model 3: Baseline Random Forest
+
+### Model 4: Hyperparameter Tuned Random Forest
+
+### Model 5: Hyperparameter Tuned XGBoost
+
 ## Evaluation
+
+|        Model        	| Accuracy 	| Precision 	| Recall 	| F1-score 	| Specificity 	| NPV   	|
+|:-------------------:	|----------	|-----------	|--------	|----------	|-------------	|-------	|
+| M2: Tuned Decision Tree 	| 76.1%    	| 72.4%     	| 71.0%  	| 71.7%    	| 77.4%       	| 76.1% 	|
+| M3: Random Forest       	| 76.6%    	| 75.7%     	| 70.4%  	| 73.0%    	| 81.1%       	| 76.6% 	|
+| M4: Tuned Random Forest 	| 76.6%    	| 77.0%     	| 75.7%  	| 76.3%    	| 81.0%       	| 80.0% 	|
+| M5: Tuned XGBoost       	| 79.5%    	| 77.2%     	| 74.8%  	| 76.0%    	| 81.5%       	| 79.5% 	|
 
 ## Conclusion
 
