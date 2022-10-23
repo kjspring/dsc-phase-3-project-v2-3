@@ -98,7 +98,9 @@ This analysis shows that it is possible with 79.5% accuracy and 81.5% specificit
 
 Moderna's pharmaceutical representatives would work in conjunction with their healthcare and government partners to implement this model in healthcare facilities.
 
-Using the feature importance, relevant information would be provided to the patient that is predicted to not be vaccinated. 
+Using the feature importance, relevant information would be provided to the patient that is predicted to not be vaccinated.
 
-Just like in Phase 1 and 2, the `README.md` file should be the bridge between your non technical presentation and the Jupyter Notebook. It should not contain the code used to develop your analysis, but should provide a more in-depth explanation of your methodology and analysis than what is described in your presentation slides.
+![](images/prediction_workflow.png)
+
+![](images/prediction_action.png)
 
