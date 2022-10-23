@@ -100,7 +100,7 @@ Moderna's pharmaceutical representatives would work in conjunction with their he
 
 Using the feature importance, relevant information would be provided to the patient that is predicted to not be vaccinated.
 
-![](images/prediction_workflow.png)
+![Prediction workflow](images/prediction_workflow.png)
 
-![](images/prediction_action.png)
+![Prediction actionable recommendations](images/prediction_action.png)
 
