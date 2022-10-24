@@ -77,13 +77,13 @@ While many metrics are shown below, the most important metric is specificity. Sp
 
 |            Model           	| Accuracy 	| Precision 	| Recall 	| F1-score 	| Specificity 	| NPV   	|
 |:--------------------------:	|----------	|-----------	|--------	|----------	|-------------	|-------	|
-| M1: Baseline Decision Tree 	| 67.9%    	| 65.6%     	| 66.5%  	| 66.0%      	| 68.8%          	| 70.0%    	|
-| M2: Tuned Decision Tree    	| 76.1%    	| 72.4%     	| 71.0%  	| 71.7%    	| 77.4%       	| 76.1% 	|
-| M3: Random Forest          	| 76.6%    	| 75.7%     	| 70.4%  	| 73.0%    	| 81.1%       	| 76.6% 	|
-| M4: Tuned Random Forest    	| 76.6%    	| 77.0%     	| 75.7%  	| 76.3%    	| 81.0%       	| 80.0% 	|
-| M5: Tuned XGBoost          	| 79.5%    	| 77.2%     	| 74.8%  	| 76.0%    	| 81.5%       	| 79.5% 	|
+| M1: Baseline Decision Tree 	| 67.8%    	| 65.3%     	| 66.6%  	| 66.0%      	| 68.8%          	| 70.0%    	|
+| M2: Tuned Decision Tree    	| 76.7%    	| 71.8%     	| 70.2%  	| 71.0%    	| 76.9%       	| 75.5% 	|
+| M3: Random Forest          	| 76.7%    	| 75.4%     	| 72.5%  	| 73.9%    	| 80.2%       	| 77.7% 	|
+| M4: Tuned Random Forest    	| 78.2%    	| 76.3%     	| 75.6%  	| 75.9%    	| 80.4%       	| 79.7% 	|
+| M5: Tuned XGBoost          	| 78.5%    	| 76.7%     	| 75.9%  	| 76.3%    	| 80.7%       	| 80.0% 	|
 
-While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has a higher specificity, accuracy, and precision than all of the models.
+While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has slightly higher scores in all metrics reported
 
 The top ten important variables as defined by Model 5: XGBoost can be categorized in the following groups:
 
