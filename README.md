@@ -78,7 +78,7 @@ While many metrics are shown below, the most important metric is specificity. Sp
 |            Model           	| Accuracy 	| Precision 	| Recall 	| F1-score 	| Specificity 	| NPV   	|
 |:--------------------------:	|----------	|-----------	|--------	|----------	|-------------	|-------	|
 | M1: Baseline Decision Tree 	| 67.8%    	| 65.3%     	| 66.6%  	| 66.0%      	| 68.8%          	| 70.0%    	|
-| M2: Tuned Decision Tree    	| 76.7%    	| 71.8%     	| 70.2%  	| 71.0%    	| 76.9%       	| 75.5% 	|
+| M2: Tuned Decision Tree    	| 73.9%    	| 71.8%     	| 70.2%  	| 71.0%    	| 76.9%       	| 75.5% 	|
 | M3: Random Forest          	| 76.7%    	| 75.4%     	| 72.5%  	| 73.9%    	| 80.2%       	| 77.7% 	|
 | M4: Tuned Random Forest    	| 78.2%    	| 76.3%     	| 75.6%  	| 75.9%    	| 80.4%       	| 79.7% 	|
 | M5: Tuned XGBoost          	| 78.5%    	| 76.7%     	| 75.9%  	| 76.3%    	| 80.7%       	| 80.0% 	|
