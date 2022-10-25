@@ -57,15 +57,15 @@ The hyperparameters
 
 ```
 dt_param_grid = {'criterion': ['gini', 'entropy', 'log-loss'],
-               'splitter': ['best', 'random'],
-                # Number of features to consider at every split
-               'max_features': ['auto', 'sqrt', 'log2'],
-                # Maximum number of levels in tree
-               'max_depth': max_depth,
-                # Minimum number of samples required to split a node
-               'min_samples_split': [int(x) for x in range(2, 22, 2)],
-                # Minimum number of samples required at each leaf node
-               'min_samples_leaf': [int(x) for x in range(5, 50, 5)]}
+                 'splitter': ['best', 'random'],
+                 # Number of features to consider at every split
+                 'max_features': ['auto', 'sqrt', 'log2'],
+                 # Maximum number of levels in tree
+                 'max_depth': max_depth,
+                 # Minimum number of samples required to split a node
+                 'min_samples_split': [int(x) for x in range(2, 22, 2)],
+                 # Minimum number of samples required at each leaf node
+                 'min_samples_leaf': [int(x) for x in range(5, 50, 5)]}
 ```
 
 As shown in the Evaluation section, Model 2 performed much better than baseline model 1 but was still only in the 70% range for accuracy, precision, recall, F1, specificity, and Negative Predictive Value (NPV).
