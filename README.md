@@ -56,12 +56,13 @@ To properly tune the hyperparemeters of this decision tree two steps were done. 
 The hyperparameters 
 
 ```
+
 dt_param_grid = {'criterion': ['gini', 'entropy', 'log-loss'],
                  'splitter': ['best', 'random'],
                  # Number of features to consider at every split
                  'max_features': ['auto', 'sqrt', 'log2'],
                  # Maximum number of levels in tree
-                 'max_depth': max_depth,
+                 'max_depth': [int(x) for x in range(0, 55, 5)].append(None),
                  # Minimum number of samples required to split a node
                  'min_samples_split': [int(x) for x in range(2, 22, 2)],
                  # Minimum number of samples required at each leaf node
