@@ -53,10 +53,9 @@ As shown under Evaluation, this was the worst performing model in terms of accur
 ### Model 2: Hyperparameter Tuned Decision Tree
 To properly tune the hyperparemeters of this decision tree two steps were done. The first was to use a broad random search of possible hyperparemeters to identify the best. This was then fed into a systematic grid search to narrow down the best possible hyperparameters.
 
-The hyperparameters 
+#### Hyperparameter Search Grid
 
 ```
-
 dt_param_grid = {'criterion': ['gini', 'entropy', 'log-loss'],
                  'splitter': ['best', 'random'],
                  # Number of features to consider at every split
@@ -74,23 +73,64 @@ As shown in the Evaluation section, Model 2 performed much better than baseline 
 ### Model 3: Baseline Random Forest
 A decision tree will maximize the information gain at every branch. This may lead to overfitting. 
 
-Random Forest is a machine learning algorithm that uses a bagging technique. This bagging technique uses various decision trees on subsets of the dataset. So instead of relying on one decision tree, the model from the Random Forest algorithm finds the prediction from each tree and it predicts the final output based on the majority vote of all the decision trees in the forest. This leads to a reduction of overfitting.
+Random Forest is a machine learning algorithm that uses a bagging technique. This bagging technique uses various decision trees on subsets of the dataset. So instead of relying on one decision tree, the model from the Random Forest algorithm finds the prediction from each tree and  the final output is based on the majority vote of all the decision trees in the forest. This leads to a reduction of overfitting.
 
-The hyperparameters used were those found during the search in model 2.
+The hyperparameters used were the best hyperparameters found during the search in model 2.
 
-As shown in the Evaluation section, there is an increase in all metrics except recall. Most importantly was an increase in specificity which is important for our model as it is more detrimental to predict a false positive (someone who is predicted to get a vaccine but does not) than a false negative (someone that is predicted to not get the vaccine but actually does).
+```
+{'criterion': 'gini',
+ 'max_depth': 15,
+ 'max_features': 'auto',
+ 'min_samples_leaf': 28,
+ 'min_samples_split': 2,
+ 'splitter': 'best'}
+```
+
+As shown in the Evaluation section, there is an increase in all metrics except as compared to model 1 and model 2. Most importantly was an increase in specificity which is important for our model as it is more detrimental to predict a false positive (someone who is predicted to get a vaccine but does not) than a false negative (someone that is predicted to not get the vaccine but actually does).
 
 ### Model 4: Hyperparameter Tuned Random Forest
-The hyperparameters were tuned for the Random Forest algorithm again using a randomized search due to computational complexity. While accuracy and specificity did not increase in comparison to model 3, the metric scores did increase for precision, recall, F1, and NPV.
+The hyperparameters were tuned for the Random Forest algorithm again using a randomized search due to computational complexity. All metrics increased from model 3 although not as dramatically as seen between model 2 and model 3.
+
+#### Hyperparameter Search Grid
+
+```
+random_grid_rf = {
+    # Number of trees in the forest
+    'n_estimators': [100, 500, 1000],
+    # Number of features to consider when looking for the best split
+    'max_features': ['auto', 'sqrt', 'log2', None],
+    # Maximum number of levels in tree
+    'max_depth': [int(x) for x in range(0, 55, 5)].append(None),
+    # Minimum number of samples required to split a node
+    'min_samples_split': [int(x) for x in range(2, 22, 2)],
+    # Minimum number of samples required at each leaf node
+    'min_samples_leaf': [int(x) for x in range(5, 50, 5)],
+    # If bootstrapped samples are used to build trees
+    'bootstrap': [True, False]}
+
+```
 
 ### Model 5: Hyperparameter Tuned XGBoost
-The final algorithm used is Gradient Boosting (XGBoost). In this case, the algorithm uses an ensemble of weak decision trees. It uses gradient descent to minimize the loss function of the model. Once it does, it concentrates on where the model went wrong and creates new learners and continuously improves. XGBoost has been found to outperform Random Forests in  many instances.
+The final algorithm used is Gradient Boosting (XGBoost). In this case, the algorithm uses an ensemble of weak decision trees. The algorithm uses gradient descent to minimize the loss function of the model and concentrates on where the model went wrong and creates new learners. XGBoost has been found to outperform Random Forests in  many instances.
 
-The Evaluation section shows that model 5 outperformed model 4 in accuracy, precision, and specificity, but had a lower score in recall, F1, and NPV.
+#### Hyperparameter Search Grid
+```
+param_grid = {
+    'learning_rate': [0.01, 0.1, 1],
+    'max_depth': [1, 10, 50, 100],
+    'min_child_weight': [1, 2],
+    'subsample': [0.5, 0.75],
+    'n_estimators': [10, 100, 1000],
+}
+```
+
+The Evaluation section shows that model 5 outperformed model 4 in all metrics but only with a percentage point from model 4.
 
 ## Evaluation
 
-While many metrics are shown below, the most important metric is specificity. Specificity, also known as the True Negative Value, refers to the probability that a negative prediction is actually negative. In this case it states the probability that a predicted not vaccinated person is actually not vaccinated. Moderna, Inc. wants to vaccinate people against the seasonal flu and COVID-19. If our model predicted a person as having the vaccine when in fact they will not get vaccinated, then this is very harmful to Moderna's needs. People that are accurately predicted to be not vaccinated will be given more information based on the most important variables as indicated in the model. Those that are predicted to be vaccinated would not receive this extra information and the false positive predictions would not have the extra information to become vaccinated.
+While many metrics are shown below, the most important metric is specificity. Specificity, also known as the True Negative Value, refers to the probability that a negative prediction is actually negative. In this case it states the probability that a predicted not vaccinated person is actually not vaccinated. 
+
+Moderna, Inc. wants to vaccinate people against the seasonal flu and COVID-19. If our model predicted a person as having the vaccine when in fact they will not get vaccinated, then this is very harmful to Moderna's needs. People that are accurately predicted to be not vaccinated will be given more information based on the most important variables as indicated in the model. Those that are predicted to be vaccinated would not receive this extra information and the false positive predictions would not have the extra information to become vaccinated.
 
 ### Table 1: Metric Scores for the Machine Learning Models
 
@@ -102,24 +142,24 @@ While many metrics are shown below, the most important metric is specificity. Sp
 | M4: Tuned Random Forest    	| 78.2%    	| 76.3%     	| 75.6%  	| 75.9%    	| 80.4%       	| 79.7% 	|
 | M5: Tuned XGBoost          	| 78.5%    	| 76.7%     	| 75.9%  	| 76.3%    	| 80.7%       	| 80.0% 	|
 
-While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has slightly higher scores in all metrics reported
+While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has slightly higher scores in all metrics reported and fitting this model takes less time than model 4.
 
 The top ten important variables as defined by Model 5: XGBoost can be categorized in the following groups:
 
-* opinion of vaccine effectiveness
+* Opinion of vaccine effectiveness
 * Opinion of risk of infection
 * Access to healthcare
 * Age group
 
 ## Conclusion
 
-This analysis shows that it is possible with 79.5% accuracy and 81.5% specificity to predict whether a person will be vaccinated or not. This model can help improve vaccination rates when used in the right settings.
+This analysis shows that it is possible with 76% sensitivity (recall) and 81% specificity to predict whether a person will be vaccinated or not. This model can help improve vaccination rates when used in the right settings.
 
 Moderna's pharmaceutical representatives would work in conjunction with their healthcare and government partners to implement this model in healthcare facilities. A patient would take a survey when they visit a healthcare professional. The survey would be inputted into the model and a prediction would be made which is shared with the healthcare professional.
 
 ![Prediction workflow](images/prediction_workflow.png)
 
-Using the variable importance, relevant information would be provided to the patient based on the vaccination prediction. A person predicted to be vaccinated would be given the option to have get the vaccine and have a follow-up to remind them if necessary. A person predicted to not be vaccinated would be given based on the important variables identified with the model. for people under the age of 55, information would be given to the patient on the effectivness of the vaccine. For those over the age of 55, they would be given information based on the risk of illness of the diseases. With this information the patient can make a more informed decision. A follow-up call would be given to check the patient's vaccination status.
+Using the variable importance, relevant information would be provided to the patient based on the vaccination prediction. A person predicted to be vaccinated would be given the option to have get the vaccine and have a follow-up to check the patients vaccination status. A person predicted to not be vaccinated and under the age of 55 would be given information on the effectivness of the vaccine. For those predicted to be unvaccinated and over the age of 55 would be given information based on the risk of illness. The CDC recommends all people over 6 months of age to be vaccinated against the Flu and COVID-19. Children and people over the age of 65 are more likely to develop severe health complications while people between these age groups are more likely to transmitt the viruses. With this information the patient can make a more informed decision. A follow-up call would be given to check the patient's vaccination status.
 
 ![Prediction actionable recommendations](images/prediction_action.png)
 
