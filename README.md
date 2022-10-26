@@ -10,7 +10,7 @@
 ## Repository Navigation
 * [/data](/data) - CDC 2009 National Health Flu Survey and CDC disclaimer
 * [/images](/images) - contains image files
-* [notebook.ipynb](notebook.ipynb) - Jupyter notebook
+* [Notebook.ipynb](Notebook.ipynb) - Jupyter notebook
 * [/plots](/plots) - Plots edited with Adobe Illustrator
 
 ##  Overview
