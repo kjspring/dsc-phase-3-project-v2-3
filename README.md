@@ -116,10 +116,11 @@ The final algorithm used is Gradient Boosting (XGBoost). In this case, the algor
 #### Hyperparameter Search Grid
 ```
 param_grid = {
-    'learning_rate': [0.01, 0.1, 1],
-    'max_depth': [1, 10, 50, 100],
+    'base_score': [0.25, 0.5, 0.75, 1],
+    'learning_rate': [0.01, 0.1, 0.5, 1],
+    'max_depth': [1, 10, 100],
     'min_child_weight': [1, 2],
-    'subsample': [0.5, 0.75],
+    'subsample': [0.5, 0.75, 1],
     'n_estimators': [10, 100, 1000],
 }
 ```
