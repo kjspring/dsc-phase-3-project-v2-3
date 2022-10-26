@@ -137,10 +137,10 @@ Moderna, Inc. wants to vaccinate people against the seasonal flu and COVID-19. I
 |            Model           	| Accuracy 	| Precision 	| Recall 	| F1-score 	| Specificity 	| NPV   	|
 |:--------------------------:	|----------	|-----------	|--------	|----------	|-------------	|-------	|
 | M1: Baseline Decision Tree 	| 67.8%    	| 65.3%     	| 66.6%  	| 66.0%      	| 68.8%          	| 70.0%    	|
-| M2: Tuned Decision Tree    	| 73.9%    	| 71.8%     	| 70.2%  	| 71.0%    	| 76.9%       	| 75.5% 	|
+| M2: Tuned Decision Tree    	| 73.9%    	| 71.8%     	| 70.3%  	| 71.0%    	| 76.9%       	| 75.5% 	|
 | M3: Random Forest          	| 76.7%    	| 75.4%     	| 72.5%  	| 73.9%    	| 80.2%       	| 77.7% 	|
-| M4: Tuned Random Forest    	| 78.2%    	| 76.3%     	| 75.6%  	| 75.9%    	| 80.4%       	| 79.7% 	|
-| M5: Tuned XGBoost          	| 78.5%    	| 76.7%     	| 75.9%  	| 76.3%    	| 80.7%       	| 80.0% 	|
+| M4: Tuned Random Forest    	| 78.4%    	| 76.8%     	| 75.6%  	| 76.2%    	| 80.8%       	| 79.8% 	|
+| M5: Tuned XGBoost          	| 78.5%    	| 77.2%     	| 74.6%  	| 75.9%    	| 81.6%       	| 79.3% 	|
 
 While model 4 and model 5 are very similar in scoring I would choose model 5 (XGBoost) as the best model. It has slightly higher scores in all metrics reported and fitting this model takes less time than model 4.
 
